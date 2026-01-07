@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: audio-transcription-service
+  
+  # WebFlux configuration
+  webflux:
+    base-path: /api
+
+# Gemini API Configuration
+gemini:
+  api:
+    key: ${GEMINI_API_KEY:AIzaSyDyvbOothD6dI0BtgnlIEh475mJOk7RbPY}
+    model: gemini-1.5-flash
+    endpoint: https://generativelanguage.googleapis.com/v1beta
+
+# Audio processing configuration
+audio:
+  buffer:
+    size: 4096
+    flush-interval-ms: 500
+  transcription:
+    language: en-US
+    continuous: true
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.audiovisualizer: DEBUG
+    org.springframework.web.socket: DEBUG

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Maven Wrapper script
+# This script will download and run Maven if not already installed
+
+set -e
+
+MAVEN_VERSION="3.9.6"
+MAVEN_URL="https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz"
+
+if command -v mvn &> /dev/null; then
+    exec mvn "$@"
+fi
+
+echo "Maven not found. Please install Maven 3.8+ or run:"
+echo "  brew install maven  (macOS)"
+echo "  apt install maven   (Ubuntu/Debian)"
+echo ""
+echo "Or download from: https://maven.apache.org/download.cgi"
+exit 1
